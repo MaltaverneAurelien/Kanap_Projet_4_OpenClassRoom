@@ -41,10 +41,9 @@ fetch(API_URL)
             <option value="${productColors[i]}">${productColors[i]}</option>
         `;
         }
-
         const addToCart = document.getElementById("addToCart");
         let panier = JSON.parse(localStorage.getItem("panier"));
-
+        console.log(panier);
         if (panier === null) {
             panier = [];
         }
@@ -76,6 +75,7 @@ fetch(API_URL)
             }
 
             const panierStr = JSON.stringify(panier);
+            console.log(panier);
             localStorage.setItem("panier", panierStr);
 
             window.location.assign("cart.html");
