@@ -2,6 +2,7 @@ const url = new URL(window.location.href);
 const searchParams = new URLSearchParams(url.search);
 let id;
 
+// Si il y a une présence d'un id dans l'url alors on le stock dans la variable id
 if (searchParams.has("id")) {
     id = searchParams.get("id");
 }

@@ -113,12 +113,17 @@ async function main() {
   updatePrice();
 }
 
+/**
+ * Fonction pour vérifier les coordonnées du formulaire
+ */
 function form() {
   const orderForm = document.getElementsByClassName("cart__order__form");
   orderForm[0].addEventListener("submit", async (event) => {
     event.preventDefault();
+    // On initialise error sur la valeur faux
     let error = false;
 
+    // On test si il y a un chiffre dans la saisie du "prénom"
     const firstName = document.getElementById("firstName").value;
     if (firstName === '' || /\d/.test(firstName)) {
       const firstNameErrorMsg = document.getElementById("firstNameErrorMsg")
@@ -154,10 +159,12 @@ function form() {
       error = true;
     }
 
+    // Si error est différent de faux, alors on termine la fonction ici
     if (error) {
       return
     }
 
+    // Si il n'y a pas eu d'erreur dans la saisie des coordoonnées, on crée un objet contact
     const contact = {
       firstName,
       lastName,
